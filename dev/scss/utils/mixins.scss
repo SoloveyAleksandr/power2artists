@@ -1,0 +1,17 @@
+@mixin hover() {
+  @media (hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin btnHover() {
+  transition: .3s;
+
+  @media (hover) {
+    &:hover {
+      background-color: $c-accent_dark;
+    }
+  }
+}

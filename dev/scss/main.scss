@@ -1,9 +1,73 @@
 @import './utils/reset';
-@import './fonts';
+// @import './fonts';
 @import './utils/mixins.scss';
-@import "./utils/variables.scss";
+@import './utils/variables.scss';
 
-// GLOBAL 
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('../fonts/SFProText-Bold.woff') format('woff'),
+    url('../fonts/SFProText-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('../fonts/SFProText-Semibold.woff') format('woff'),
+    url('../fonts/SFProText-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('../fonts/SFProText-Medium.woff') format('woff'),
+    url('../fonts/SFProText-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('../fonts/SFProText-Regular.woff') format('woff'),
+    url('../fonts/SFProText-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('../fonts/SF-Pro-Display-Bold.woff') format('woff'),
+    url('../fonts/SFProText-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('../fonts/SF-Pro-Display-Semibold.woff') format('woff'),
+    url('../fonts/SFProText-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('../fonts/SF-Pro-Display-Medium.woff') format('woff'),
+    url('../fonts/SFProText-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('../fonts/SF-Pro-Display-Regular.woff') format('woff'),
+    url('../fonts/SFProText-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+// GLOBAL
 *,
 *::before,
 *::after {
@@ -59,185 +123,10 @@ body {
   @include btnHover;
 }
 
-// 
+//
 
-.sidebar {
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  width: $side-width;
-  height: 100%;
-  background-color: $c-accent;
-  padding: 3.2rem 2.4rem 2.4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.sidebar-logo {
-  width: 100%;
-  margin-bottom: 8rem;
-
-  img {
-    object-fit: contain;
-    object-position: center top;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.sidebar-open-menu {
-  display: none !important;
-}
-
-.sidebar-menu {
-  flex: 1;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 4rem;
-
-  .mCSB_scrollTools {
-    display: none;
-  }
-
-  li {
-    a:not(.footer-link) {
-      width: fit-content;
-      font-size: 2.4rem;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 3.2rem;
-      color: $c-white;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 1.6rem;
-      transition: .3s;
-
-      @include hover {
-        color: $c-white_hover;
-      }
-
-      svg {
-        flex: none;
-        fill: $c-white;
-        width: 4rem;
-        height: 4rem;
-        fill-opacity: 0.7;
-      }
-    }
-  }
-}
-
-.sidebar-menu-btn {
-  display: none;
-}
-
-.sidebar-menu--footer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.8rem;
-
-  .footer {
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    color: $c-white;
-
-    .footer-link {
-      transition: .3s;
-
-      @include hover {
-        color: $c-white_hover;
-      }
-    }
-  }
-}
-
-.header {
-  padding: 2rem 5.6rem 1.9rem;
-  border-bottom: 0.1rem solid $c-grey-line;
-
-  .header-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    .header-logo {
-      display: none;
-    }
-
-    .header-menu {
-      ul {
-        display: flex;
-        align-items: center;
-        gap: 4rem;
-
-        li {
-          a {
-            font-size: 2rem;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 2.8rem;
-            color: $c-black;
-            transition: .3s;
-
-            @include hover {
-              color: $c-black_hover;
-            }
-          }
-        }
-      }
-    }
-
-    .header-burger {
-      display: none;
-    }
-
-    .header-menu__right {
-      .header-btn {
-        display: none;
-      }
-    }
-
-    .header-lc {
-      a.img.ajax-form {
-        display: none;
-      }
-
-      .content {
-        a.header-lc--exit {
-          padding: 0.8rem 2rem 0.8rem 1.2rem;
-          background-color: $c-accent;
-          display: flex;
-          align-items: center;
-          gap: 0.8rem;
-          font-size: 1.6rem;
-          font-style: normal;
-          font-weight: 700;
-          line-height: 2.4rem;
-          color: $c-white;
-          border-radius: 10rem;
-
-          @include btnHover;
-
-          svg {
-            flex: none;
-            width: 2.4rem;
-            height: 2.4rem;
-            fill: $c-white;
-          }
-        }
-      }
-    }
-  }
-}
+@import './modules/header.scss';
+@import './modules/sidebar.scss';
 
 main {
   flex: 1;
@@ -283,12 +172,19 @@ main {
         align-items: flex-start;
         border-radius: 2.4rem;
         background: $c-white;
-        box-shadow: 0 3.2rem 3.2rem 0 rgba(17, 65, 85, 0.05), 0 1.6rem 1.6rem 0 rgba(17, 65, 85, 0.05), 0 0.8rem 0.8rem 0 rgba(17, 65, 85, 0.05), 0 0.4rem 0.4rem 0 rgba(17, 65, 85, 0.05), 0 -0.2rem 0.2rem 0 rgba(17, 65, 85, 0.05);
+        box-shadow: 0 0.1rem 0.1rem 0 rgba(17, 65, 85, 0.02),
+          0 0.15rem 0.2rem 0 rgba(17, 65, 85, 0.03), 0 0.3rem 0.5rem 0 rgba(17, 65, 85, 0.04),
+          0 0.6rem 1.6rem 0 rgba(17, 65, 85, 0.04);
         padding: 5.6rem 5.6rem;
         overflow: hidden;
         position: relative;
+        transition: 0.3s;
 
         &.active {
+          box-shadow: 0 3.2rem 3.2rem 0 rgba(17, 65, 85, 0.05),
+            0 1.6rem 1.6rem 0 rgba(17, 65, 85, 0.05), 0 0.8rem 0.8rem 0 rgba(17, 65, 85, 0.05),
+            0 0.4rem 0.4rem 0 rgba(17, 65, 85, 0.05), 0 -0.2rem 0.2rem 0 rgba(17, 65, 85, 0.05);
+
           .main-form {
             opacity: 1;
             pointer-events: all;
@@ -322,7 +218,7 @@ main {
   border-radius: 50%;
   background-color: rgba(8, 31, 40, 0.15);
   padding: 4.9rem;
-  transition: .5s;
+  transition: 0.5s;
 
   svg {
     width: 100%;
@@ -354,7 +250,7 @@ main {
   opacity: 0;
   pointer-events: none;
   transform: translateY(5rem);
-  transition: .5s;
+  transition: 0.5s;
 
   form {
     display: flex;
@@ -373,7 +269,7 @@ main {
   &.error {
     input {
       border-color: rgba(226, 73, 73, 0.85);
-      background-color: rgba(226, 73, 73, 0.10);
+      background-color: rgba(226, 73, 73, 0.1);
     }
   }
 
@@ -389,14 +285,14 @@ main {
     height: 4rem;
     border-radius: 1.2rem;
     border: 0.1rem solid rgba(155, 174, 182, 0.85);
-    box-shadow: 0 0.1rem 0.2rem rgba(17, 65, 85, 0.20) inset;
+    box-shadow: 0 0.1rem 0.2rem rgba(17, 65, 85, 0.2) inset;
     background-color: $c-grey_light;
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 400;
     line-height: 2.4rem;
     padding: 0rem 1.6rem;
-    transition: .3s;
+    transition: 0.3s;
 
     &::placeholder {
       color: $c-placeholder;
@@ -404,7 +300,7 @@ main {
 
     &:focus {
       border-color: rgba(50, 151, 194, 0.85);
-      background-color: #FBFBFC;
+      background-color: #fbfbfc;
     }
   }
 }
@@ -421,5 +317,122 @@ main {
     font-style: normal;
     font-weight: 400;
     line-height: 2.4rem;
+  }
+}
+
+.bx-slst {
+  width: 100%;
+
+  .bx-ui-slst-pool {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .dropdown-block {
+    width: 100%;
+    height: 4rem;
+    border-radius: 1.2rem;
+    border: 0.1rem solid rgba(155, 174, 182, 0.85);
+    box-shadow: 0 0.1rem 0.2rem rgba(17, 65, 85, 0.2) inset;
+    background-color: $c-grey_light;
+    padding: 0;
+    margin: 0;
+
+    &.error {
+      border-color: rgba(226, 73, 73, 0.85);
+      background-color: rgba(226, 73, 73, 0.1);
+    }
+
+    .dropdown-icon {
+      display: none;
+    }
+
+    .dropdown-fade2white {
+      display: none;
+    }
+
+    .bx-ui-combobox-container {
+      width: 100%;
+      height: 100%;
+
+      input {
+        width: 100%;
+        height: 100%;
+        font-family: $font-text;
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 2.4rem;
+        padding: 0rem 4.4rem 0 1.6rem;
+        transition: 0.3s;
+
+        &::placeholder {
+          color: $c-placeholder;
+        }
+
+        &:focus {
+          border-color: rgba(50, 151, 194, 0.85);
+          background-color: #fbfbfc;
+        }
+      }
+    }
+
+    .bx-ui-combobox-dropdown {
+      padding: 1.6rem 0rem;
+      border-radius: 1.6rem;
+      border: none;
+      width: 100%;
+      max-height: 25rem;
+      background-color: $c-white;
+      bottom: unset;
+      top: calc(100% + 1px);
+      box-shadow: 0 0.1rem 0.1rem 0 rgba(17, 65, 85, 0.02),
+        0 0.15rem 0.2rem 0 rgba(17, 65, 85, 0.03), 0 0.3rem 0.5rem 0 rgba(17, 65, 85, 0.04),
+        0 0.6rem 1.6rem 0 rgba(17, 65, 85, 0.04);
+
+      .bx-ui-combobox-variant {
+        width: 100%;
+        padding: 1.6rem 2.4rem;
+        transition: 0.3s;
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 2.4rem;
+        color: $c-black;
+        background-color: transparent;
+
+        &:hover {
+          background-color: rgba(158, 207, 228, 0.05);
+        }
+
+        &.bx-ui-combobox-variant-active {
+          background-color: $c-accent;
+          color: $c-white;
+        }
+      }
+
+      .bx-ui-combobox-error {
+        width: 100%;
+        padding: 1.6rem 2.4rem;
+        transition: 0.3s;
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 2.4rem;
+        color: $c-red-error;
+        background-color: transparent;
+      }
+    }
+  }
+
+  .bx-ui-combobox-toggle {
+    position: absolute;
+    width: 2.4rem;
+    height: 2.4rem;
+    top: 50%;
+    right: 1.6rem;
+    transform: translateY(-50%);
   }
 }

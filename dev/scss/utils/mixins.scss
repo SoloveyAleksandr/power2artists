@@ -7,11 +7,31 @@
 }
 
 @mixin btnHover() {
-  transition: .3s;
+  transition: 0.3s;
 
   @media (hover) {
     &:hover {
       background-color: $c-accent_dark;
     }
+  }
+}
+
+@mixin scroll() {
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #e7f8ff;
+    box-shadow: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $c-accent;
+    box-shadow: none;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $c-accent_dark;
   }
 }

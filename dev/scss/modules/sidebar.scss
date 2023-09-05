@@ -41,7 +41,33 @@
     display: none;
   }
 
+  &--list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+
+    .mCustomScrollBox {
+      width: 100%;
+
+      .mCSB_scrollTools {
+        display: none !important;
+      }
+
+      .mCSB_container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+      }
+    }
+  }
+
   li {
+    width: 100%;
+
     &:nth-child(3) {
       a:not(.footer-link) {
         svg {
@@ -58,24 +84,48 @@
 
     &:nth-child(4) {
       a:not(.footer-link) {
+        svg {
+          &:nth-child(1) {
+            display: none;
+          }
+
+          &:nth-child(3) {
+            display: block;
+          }
+        }
       }
     }
 
     a:not(.footer-link) {
-      width: fit-content;
+      width: 100%;
       font-size: 2.4rem;
       font-style: normal;
       font-weight: 600;
       line-height: 3.2rem;
       color: $c-white;
-      padding: 1rem;
+      padding: 1rem 1.2rem;
+      background-color: transparent;
       display: flex;
       align-items: center;
       gap: 1.6rem;
+      border-radius: 1.2rem;
       transition: 0.3s;
 
       @include hover {
-        color: $c-white_hover;
+        background-color: $c-white;
+        color: $c-accent;
+
+        svg {
+          fill: $c-accent;
+        }
+      }
+
+      &:active {
+        opacity: 0.7;
+
+        svg {
+          fill-opacity: 1;
+        }
       }
 
       svg {
@@ -84,6 +134,7 @@
         width: 4rem;
         height: 4rem;
         fill-opacity: 0.7;
+        transition: 0.3s;
 
         &:not(:first-child) {
           display: none;

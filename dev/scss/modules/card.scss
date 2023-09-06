@@ -1,0 +1,343 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.card-main {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    .content-zag {
+      font-size: 2rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 2.8rem;
+    }
+  }
+
+  &__photo {
+    display: flex;
+    align-items: flex-start;
+    gap: 6.2rem;
+
+    .img {
+      flex: none;
+      width: 46.9rem;
+      height: 28.3rem;
+      border-radius: 1.6rem;
+      overflow: hidden;
+      position: relative;
+
+      img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      .calendar {
+        position: absolute;
+        top: 1.6rem;
+        right: 1.6rem;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $c-accent;
+        padding: 0.8rem;
+        transition: 0.3s;
+
+        @include hover {
+          background-color: $c-accent_dark;
+
+          svg {
+            fill: $c-white_hover;
+          }
+        }
+
+        svg.icon {
+          fill: $c-white;
+          width: 100%;
+          height: 100%;
+          transition: 0.3s;
+        }
+      }
+    }
+
+    .desc {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.8rem;
+
+      &-zag {
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 2.8rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .item {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 2.4rem;
+
+        .zag {
+          color: $c-placeholder;
+        }
+      }
+    }
+  }
+}
+
+.card-main__lot {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.4rem;
+  color: $c-black;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+  max-width: 96.7rem;
+
+  &__item {
+    padding: 1.6rem;
+    background-color: $c-white;
+    border-radius: 1.6rem;
+    @include boxShadow;
+
+    &.active {
+      .card-list__item-name {
+        padding-bottom: 0rem;
+
+        svg.icon {
+          fill: $c-black;
+          transform: scaleY(1);
+        }
+      }
+    }
+  }
+
+  &__item-name {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+    padding-bottom: 1.6rem;
+    transition: 0.5s;
+    cursor: pointer;
+
+    svg.icon {
+      flex: none;
+      width: 2rem;
+      height: 2rem;
+      fill: $c-accent;
+      transform: scaleY(-1);
+      transition: 0.5s;
+    }
+  }
+
+  &__hide {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding-top: 0.5rem;
+  }
+
+  &__item-content {
+    display: flex;
+    align-items: baseline;
+    gap: 1.6rem;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.4rem;
+    color: $c-black;
+    padding-top: 1.5rem;
+    border-top: 0.1rem solid $c-grey-border;
+  }
+
+  &__item-doc {
+    .list-doc {
+      .documents {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        .img {
+          width: 3.2rem;
+          height: 3.2rem;
+
+          img {
+            object-fit: contain;
+            object-position: center;
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .name {
+          font-size: 1.6rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 2.4rem;
+          color: $c-black;
+        }
+      }
+    }
+  }
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+  max-width: 96.7rem;
+  padding: 2.4rem;
+  border-radius: 1.6rem;
+  @include boxShadow;
+  background-color: $c-white;
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.8rem;
+  }
+
+  &__count {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 2rem;
+    font-style: normal;
+    line-height: 2.8rem;
+
+    svg.icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      fill: $c-accent;
+    }
+  }
+
+  &__rules {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 2rem;
+    font-style: normal;
+    line-height: 2.8rem;
+    font-weight: 700;
+
+    svg.icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      fill: $c-accent;
+    }
+  }
+
+  &__item:not(.item__auction) {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.4rem;
+
+    .zag {
+      color: $c-placeholder;
+    }
+
+    .text.list {
+      width: 100%;
+
+      .documents {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+
+        .img {
+          width: 3.2rem;
+          height: 3.2rem;
+
+          img {
+            object-fit: contain;
+            object-position: center;
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .name {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    }
+  }
+
+  &__item.item__auction {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+
+    .zag {
+      font-size: 2rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 2.8rem;
+    }
+
+    .price-end {
+      font-size: 3.2rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 4rem;
+      color: #91cbe5;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+
+      .type {
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 2.4rem;
+        color: #7f8e95;
+      }
+    }
+  }
+}

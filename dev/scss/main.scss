@@ -107,8 +107,8 @@ html {
 
 body {
   font-family: $font-text;
-  font-size: 2.4rem;
-  line-height: 3.2rem;
+  font-size: 1.6rem;
+  line-height: normal;
   color: $c-black;
 
   background-color: $c-bg;
@@ -133,6 +133,14 @@ body {
   @include btnHover;
 }
 
+.blue {
+  color: $c-accent;
+}
+
+.gray {
+  color: $c-placeholder;
+}
+
 //
 
 @import './modules/header.scss';
@@ -141,6 +149,7 @@ body {
 @import './modules/smart-filter.scss';
 @import './modules/forms.scss';
 @import './modules/offer.scss';
+@import './modules/card.scss';
 
 // список карточек artists
 @import './modules/artists.scss';
@@ -1141,4 +1150,22 @@ main {
 
 .ui-datepicker {
   z-index: 20;
+}
+
+.auction-gallery {
+  width: 46.9rem;
+
+  .auction-gallery__main-slide {
+    border-radius: 1.6rem;
+    overflow: hidden;
+    height: 28.3rem;
+
+    a {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
 }

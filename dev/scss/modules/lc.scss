@@ -1,0 +1,152 @@
+.lc {
+  &-tab {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+
+    &__head {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      background-color: $c-white;
+      border-radius: 3rem;
+      width: fit-content;
+
+      &-el {
+        padding: 1.2rem 2.4rem;
+        border-radius: 3rem;
+        background-color: $c-white;
+        border-radius: 3rem;
+        font-size: 1.2rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.6rem;
+        color: $c-placeholder;
+
+        &.active {
+          background-color: #8dcfec;
+          color: $c-white;
+          box-shadow: 0 0.03rem 0.1rem 0 rgba(17, 65, 85, 0.03),
+            0 0.08rem 0.2rem 0 rgba(17, 65, 85, 0.04), 0 0.15rem 0.35rem 0 rgba(17, 65, 85, 0.05),
+            0 0.3rem 0.5rem 0 rgba(17, 65, 85, 0.05), 0 0 1.6rem 0 rgba(17, 65, 85, 0.06);
+        }
+      }
+
+      &-item {
+        position: relative;
+
+        @include hover {
+          .menu-2lvl {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0);
+          }
+        }
+
+        .fa {
+          display: none;
+        }
+
+        .menu-2lvl {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          box-shadow: 0 0.03rem 0.1rem 0 rgba(17, 65, 85, 0.03),
+            0 0.08rem 0.2rem 0 rgba(17, 65, 85, 0.04), 0 0.15rem 0.35rem 0 rgba(17, 65, 85, 0.05),
+            0 0.3rem 0.5rem 0 rgba(17, 65, 85, 0.05), 0 0 1.6rem 0 rgba(17, 65, 85, 0.06);
+          background-color: $c-white;
+          min-width: 100%;
+          border-radius: 1.6rem;
+          padding: 1.6rem 0rem;
+          white-space: nowrap;
+          opacity: 0;
+          pointer-events: none;
+          transform: translateY(2rem);
+          transition: 0.3s;
+
+          ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            li {
+              padding: 0.8rem 2.4rem;
+              font-size: 1.6rem;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 2.4rem;
+
+              @include hover {
+                color: $c-accent;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.lc-table {
+  background-color: #fff;
+  box-shadow: 0 0.03rem 0.1rem 0 rgba(17, 65, 85, 0.03), 0 0.08rem 0.2rem 0 rgba(17, 65, 85, 0.04),
+    0 0.15rem 0.35rem 0 rgba(17, 65, 85, 0.05), 0 0.3rem 0.5rem 0 rgba(17, 65, 85, 0.05),
+    0 0 1.6rem 0 rgba(17, 65, 85, 0.06);
+  border-radius: 1.6rem;
+
+  &__zag {
+    width: 100%;
+    padding: 1.6rem 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.8rem;
+  }
+
+  table {
+    border-spacing: 0;
+    background-color: unset;
+    border-collapse: collapse;
+    width: 100%;
+
+    tr {
+      width: 100%;
+      font-size: 1.6rem;
+      font-style: normal;
+      line-height: 2.4rem;
+
+      &:not(:last-child) {
+        &:not(.table-head) {
+          border-bottom: 0.1rem solid $c-grey-border;
+        }
+      }
+    }
+
+    th {
+      padding: 1rem 3.2rem;
+    }
+
+    td {
+      padding: 1rem 3.2rem;
+    }
+
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+      fill: $c-accent;
+    }
+  }
+}
+
+.table-head {
+  background: rgba(221, 236, 243, 0.5);
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2.4rem;
+  color: $c-black;
+}

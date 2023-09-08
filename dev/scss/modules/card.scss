@@ -2,12 +2,20 @@
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+
+  @include breakpoint($sm-bp) {
+    gap: 2.4rem;
+  }
 }
 
 .card-main {
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+
+  @include breakpoint($sm-bp) {
+    gap: 2.4rem;
+  }
 
   &__content {
     display: flex;
@@ -27,6 +35,11 @@
     align-items: flex-start;
     gap: 6.2rem;
 
+    @include breakpoint($sm-bp) {
+      flex-direction: column;
+      gap: 2.4rem;
+    }
+
     .img {
       flex: none;
       width: 46.9rem;
@@ -34,6 +47,11 @@
       border-radius: 1.6rem;
       overflow: hidden;
       position: relative;
+
+      @include breakpoint($sm-bp) {
+        width: 100%;
+        height: calc((100vw - 3.2rem) * 0.6);
+      }
 
       img {
         object-fit: cover;
@@ -85,6 +103,9 @@
         font-weight: 700;
         line-height: 2.8rem;
         margin-bottom: 0.8rem;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .item {
@@ -223,6 +244,10 @@
   border-radius: 1.6rem;
   @include boxShadow;
   background-color: $c-white;
+
+  @include breakpoint($xl-bp) {
+    padding: 1.6rem;
+  }
 
   &__top {
     display: flex;

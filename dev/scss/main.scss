@@ -153,6 +153,12 @@ body {
   color: $c-placeholder;
 }
 
+.zag {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 //
 
 @import './modules/header.scss';
@@ -172,6 +178,12 @@ main {
   padding: 0rem 5.5rem 4.8rem;
   display: flex;
   flex-direction: column;
+  //
+  overflow: hidden;
+
+  @include breakpoint($xl-bp) {
+    padding: 0rem 1.6rem 2.4rem;
+  }
 
   #comp_39753d2890b9a4e23457a77c548c170d {
     width: 100%;
@@ -194,6 +206,16 @@ main {
       line-height: 3.2rem;
       color: $c-accent;
       margin: 4rem 0rem;
+
+      @include breakpoint($xl-bp) {
+        margin: 2.4rem 0rem;
+        max-width: 100%;
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 2.4rem;
+        color: $c-black;
+      }
     }
 
     .main {
@@ -202,6 +224,12 @@ main {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 3rem;
+
+      @include breakpoint($xl-bp) {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+      }
 
       .main-item {
         width: 100%;
@@ -219,6 +247,16 @@ main {
         position: relative;
         transition: 0.3s;
 
+        @include breakpoint($xl-bp) {
+          padding: 2.4rem;
+          height: fit-content;
+          min-height: unset;
+        }
+
+        @include breakpoint($sm-bp) {
+          padding: 2rem 1.6rem;
+        }
+
         &.active {
           box-shadow: 0 3.2rem 3.2rem 0 rgba(17, 65, 85, 0.05),
             0 1.6rem 1.6rem 0 rgba(17, 65, 85, 0.05), 0 0.8rem 0.8rem 0 rgba(17, 65, 85, 0.05),
@@ -233,6 +271,17 @@ main {
           .main-item__bg {
             opacity: 0;
           }
+
+          .main-item--close {
+            opacity: 1;
+            pointer-events: all;
+          }
+
+          .main-item-container {
+            @include breakpoint($xl-bp) {
+              grid-template-rows: auto 1fr;
+            }
+          }
         }
       }
     }
@@ -245,6 +294,19 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
+  @include breakpoint($xl-bp) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 0fr;
+    gap: 1.6rem;
+    transition: 0.5s;
+    overflow: hidden;
+  }
+
+  @include breakpoint($sm-bp) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .main-item__bg {
@@ -259,6 +321,20 @@ main {
   padding: 4.9rem;
   transition: 0.5s;
 
+  @include breakpoint($xl-bp) {
+    position: static;
+    transform: none;
+    width: 8rem;
+    height: 8rem;
+    padding: 1.4rem;
+    grid-area: 1/2/2/3;
+    margin: 0 0 auto auto;
+  }
+
+  @include breakpoint($sm-bp) {
+    display: none;
+  }
+
   svg {
     width: 100%;
     height: 100%;
@@ -268,6 +344,26 @@ main {
 
 .main-item--close {
   display: none;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 2.4rem;
+    right: 2.4rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    transition: 0.3s;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: $c-grey-border;
+  }
 }
 
 .main-item--zag {
@@ -281,6 +377,20 @@ main {
   text-align: center;
   margin: 0;
   min-height: 15.8rem;
+
+  @include breakpoint($xl-bp) {
+    min-height: unset;
+    grid-area: 1/1/2/2;
+    text-align: left;
+    margin-bottom: auto;
+  }
+
+  @include breakpoint($sm-bp) {
+    font-size: 3.2rem;
+    line-height: 4rem;
+    grid-area: 1/1/2/2;
+    padding-right: 3rem;
+  }
 }
 
 .main-form {
@@ -294,6 +404,17 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include breakpoint($xl-bp) {
+    grid-area: 2/1/3/3;
+    opacity: 0;
+    min-height: 0;
+    transform: none;
+  }
+
+  @include breakpoint($sm-bp) {
+    grid-area: 2/1/3/2;
+  }
 
   form {
     display: flex;
@@ -489,17 +610,26 @@ main {
 .page-head {
   margin: 1.6rem 0rem 3.2rem;
 
+  @include breakpoint($sm-bp) {
+    margin: 1.6rem 0rem 2rem;
+  }
+
   &__wrp {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 4rem;
+
+    @include breakpoint($sm-bp) {
+      gap: 2.4rem;
+    }
   }
 
   .bx-breadcrumb {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    flex-wrap: wrap;
     column-gap: 0.6rem;
     row-gap: 1rem;
     padding: 0.8rem 0rem;
@@ -548,6 +678,9 @@ main {
     font-style: normal;
     font-weight: 600;
     line-height: 4rem;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   span {
@@ -557,19 +690,46 @@ main {
     line-height: 3.2rem;
     color: $c-accent;
     max-width: 96.4rem;
+
+    @include breakpoint($xl-bp) {
+      max-width: 100%;
+    }
+
+    @include breakpoint($sm-bp) {
+      max-width: 100%;
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 2.4rem;
+      color: $c-black;
+    }
   }
 }
 
 .services-menu {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 3rem;
   row-gap: 2.4rem;
 
+  @include breakpoint($xl-bp) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+
+  @include breakpoint($sm-bp) {
+    grid-template-columns: 1fr;
+  }
+
   &-item {
     width: 100%;
     height: 100%;
     min-height: 16rem;
+
+    @include breakpoint($sm-bp) {
+      min-height: 12.8rem;
+    }
 
     a {
       display: flex;
@@ -599,6 +759,12 @@ main {
         color: $c-accent;
         background-color: $c-white;
       }
+
+      @include breakpoint($sm-bp) {
+        padding: 2.4rem 1.6rem;
+        font-size: 3.2rem;
+        line-height: 4rem;
+      }
     }
   }
 }
@@ -609,6 +775,16 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 10.4rem;
+  overflow: hidden;
+
+  @include breakpoint($xl-bp) {
+    gap: 3.2rem;
+  }
+
+  @include breakpoint($sm-bp) {
+    gap: 4rem;
+    margin: 0;
+  }
 }
 
 .about-item {
@@ -619,9 +795,32 @@ main {
   display: flex;
   align-items: center;
 
+  @include breakpoint($xl-bp) {
+    gap: 3.2rem;
+  }
+
+  @include breakpoint($sm-bp) {
+    gap: 1.6rem;
+    flex-direction: column;
+  }
+
+  &:nth-child(2n + 2) {
+    @include breakpoint($xl-bp) {
+      flex-direction: row-reverse;
+    }
+
+    @include breakpoint($sm-bp) {
+      flex-direction: column;
+    }
+  }
+
   &:nth-child(2n + 2) & {
     &__desc {
       padding: 3.2rem 4rem 3.2rem 62rem;
+
+      @include breakpoint($xl-bp) {
+        padding: 2.4rem 3.2rem;
+      }
     }
 
     &__img {
@@ -638,6 +837,15 @@ main {
     padding: 3.2rem 62rem 3.2rem 4rem;
     border-radius: 1.6rem;
     background-color: #ecfcff;
+
+    @include breakpoint($xl-bp) {
+      padding: 2.4rem 3.2rem;
+      flex: 1;
+    }
+
+    @include breakpoint($sm-bp) {
+      padding: 3.2rem 3rem;
+    }
 
     .zag {
       font-size: 2.4rem;
@@ -666,6 +874,17 @@ main {
       0 0.15rem 0.35rem 0 rgba(17, 65, 85, 0.05), 0 0.3rem 0.5rem 0 rgba(17, 65, 85, 0.05),
       0 0 1.6rem 0 rgba(17, 65, 85, 0.06);
 
+    @include breakpoint($xl-bp) {
+      flex: 1;
+      position: static;
+      width: 100%;
+      height: 100%;
+    }
+
+    @include breakpoint($sm-bp) {
+      padding: 1rem;
+    }
+
     img {
       object-fit: contain;
       object-position: center;
@@ -683,8 +902,17 @@ main {
     gap: 4rem;
     justify-content: space-between;
 
+    @include breakpoint($xl-bp) {
+      flex-direction: column-reverse;
+      gap: 3.2rem;
+    }
+
     &__container {
       max-width: 80.7rem;
+
+      @include breakpoint($xl-bp) {
+        max-width: 100%;
+      }
     }
 
     &-menu {
@@ -692,6 +920,10 @@ main {
       display: flex;
       flex-direction: column-reverse;
       gap: 1.6rem;
+
+      @include breakpoint($xl-bp) {
+        max-width: 100%;
+      }
 
       &__list {
         ul {
@@ -847,6 +1079,17 @@ main {
 
   &__trigger {
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .jq-selectbox__trigger-arrow {
+      top: unset;
+      right: unset;
+      border-top: 0.5rem solid $c-placeholder;
+      border-right: 0.5rem solid transparent;
+      border-left: 0.5rem solid transparent;
+    }
   }
 
   &__dropdown {
@@ -854,6 +1097,7 @@ main {
     background-color: $c-white;
     box-shadow: 0 0.05rem 0.1rem 0 rgba(17, 65, 85, 0.1), 0 0.15rem 0.3rem 0 rgba(17, 65, 85, 0.04),
       0 0.3rem 0.8rem 0 rgba(17, 65, 85, 0.03);
+    top: 100% !important;
 
     ul {
       display: flex;
@@ -974,6 +1218,10 @@ main {
   flex-direction: column;
   align-items: flex-start;
   gap: 3.2rem;
+
+  @include breakpoint($sm-bp) {
+    gap: 2.4rem;
+  }
 }
 
 .js-select-mult {
@@ -1073,9 +1321,23 @@ main {
     position: relative;
     display: flex;
     align-items: center;
+    margin: 0;
 
     span {
       position: relative;
+    }
+
+    .icon-caret {
+      right: 0.8rem;
+      margin-top: -0.2rem;
+      border-color: $c-placeholder transparent transparent transparent;
+      border-style: solid;
+      border-width: 0.5rem 0.4rem 0 0.4rem;
+
+      &.open {
+        border-color: transparent transparent $c-placeholder transparent;
+        border-width: 0 0.4rem 0.5rem 0.4rem;
+      }
     }
   }
 
@@ -1219,4 +1481,46 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.popup-window {
+  padding: 1.6rem 0rem;
+  background-color: $c-white;
+  box-shadow: 0 0.05rem 0.1rem 0 rgba(17, 65, 85, 0.1), 0 0.15rem 0.3rem 0 rgba(17, 65, 85, 0.04),
+    0 0.3rem 0.8rem 0 rgba(17, 65, 85, 0.03);
+  border-radius: 1.6rem;
+
+  .smart-filter-dropdown-popup {
+    ul {
+      display: flex;
+      flex-direction: column;
+
+      li {
+        label {
+          font-size: 1.6rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 2.4rem;
+          padding: 1.6rem 2.4rem;
+          color: $c-black;
+          transition: 0.3s;
+
+          &:hover {
+            color: $c-black;
+            background-color: rgba(158, 207, 228, 0.05);
+          }
+
+          &.selected {
+            background-color: $c-accent;
+            color: $c-white;
+          }
+
+          &.sel {
+            background-color: $c-accent;
+            color: $c-white;
+          }
+        }
+      }
+    }
+  }
 }

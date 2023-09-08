@@ -4,6 +4,14 @@
   align-items: stretch;
   gap: 3.2rem;
 
+  @include breakpoint($xl-bp) {
+    gap: 2rem;
+  }
+
+  @include breakpoint($sm-bp) {
+    flex-direction: column;
+  }
+
   .text-center {
     width: 100%;
   }
@@ -19,6 +27,14 @@
   box-shadow: 0 0.03rem 0.1rem 0 rgba(17, 65, 85, 0.03), 0 0.08rem 0.2rem 0 rgba(17, 65, 85, 0.04),
     0 0.15rem 0.35rem 0 rgba(17, 65, 85, 0.05), 0 0.3rem 0.5rem 0 rgba(17, 65, 85, 0.05),
     0 0 1.6rem 0 rgba(17, 65, 85, 0.06);
+
+  @include breakpoint($xl-bp) {
+    width: calc((100% - 2rem) / 2);
+  }
+
+  @include breakpoint($sm-bp) {
+    width: 100%;
+  }
 
   [data-entity] {
     width: 100%;

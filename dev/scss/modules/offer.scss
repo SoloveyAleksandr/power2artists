@@ -1,6 +1,10 @@
 .offer {
   margin-bottom: 3.2rem;
 
+  @include breakpoint($sm-bp) {
+    margin-bottom: 2.4rem;
+  }
+
   &-form {
     display: flex;
     flex-direction: column;
@@ -80,6 +84,16 @@
   gap: 6.2rem;
   width: 100%;
   max-width: 121.7rem;
+
+  @include breakpoint($xl-bp) {
+    max-width: 100%;
+    gap: 3.2rem;
+  }
+
+  @include breakpoint($sm-bp) {
+    flex-direction: column;
+    gap: 1.6rem;
+  }
 }
 
 .offer-img {
@@ -89,6 +103,11 @@
   border-radius: 1.6rem;
   background: #eaf4f9;
   overflow: hidden;
+
+  @include breakpoint($sm-bp) {
+    width: 100%;
+    height: calc((100vw - 3.2rem) * 0.6);
+  }
 
   img {
     object-fit: contain;

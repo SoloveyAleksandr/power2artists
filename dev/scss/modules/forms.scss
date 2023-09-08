@@ -5,6 +5,10 @@
   gap: 0.4rem;
   width: 100%;
 
+  @include breakpoint($sm-bp) {
+    max-width: 100%;
+  }
+
   &.error {
     input,
     textarea {

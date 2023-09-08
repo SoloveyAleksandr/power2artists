@@ -103,6 +103,14 @@ button {
 
 html {
   font-size: calc(100vw / 1920 * 10);
+
+  @include breakpoint($xl-bp) {
+    font-size: calc(100vw / 990 * 10);
+  }
+
+  @include breakpoint($sm-bp) {
+    font-size: calc(100vw / 360 * 10);
+  }
 }
 
 body {
@@ -117,6 +125,10 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+
+  @include breakpoint($xl-bp) {
+    padding: 0;
+  }
 }
 
 // general

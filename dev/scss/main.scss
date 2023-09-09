@@ -133,6 +133,7 @@ body {
 
 // general
 .btn {
+  max-width: 32.8rem;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 700;
@@ -143,6 +144,20 @@ body {
   background-color: $c-accent;
   border-radius: 10rem;
   @include btnHover;
+}
+
+.btn-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  svg {
+    width: 1em;
+    height: 1em;
+    fill: transparent;
+    stroke: $c-white;
+  }
 }
 
 .blue {
@@ -157,6 +172,13 @@ body {
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 }
 
 //
@@ -742,7 +764,8 @@ main {
       font-size: 4rem;
       font-style: normal;
       font-weight: 600;
-      line-height: 4.8rem; /* 120% */
+      line-height: 4.8rem;
+      /* 120% */
       text-transform: uppercase;
       text-align: left;
       color: $c-white;
@@ -981,7 +1004,8 @@ main {
         font-size: 1.6rem;
         font-style: normal;
         font-weight: 400;
-        line-height: 2.4rem; /* 150% */
+        line-height: 2.4rem;
+        /* 150% */
         letter-spacing: 0.08rem;
         text-transform: uppercase;
         color: $c-accent;
@@ -1075,6 +1099,12 @@ main {
     @include hover {
       background: #fbfbfc;
     }
+
+    &-text {
+      background-position: right center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   }
 
   &__trigger {
@@ -1093,6 +1123,7 @@ main {
   }
 
   &__dropdown {
+    z-index: 500;
     padding: 1.6rem 0rem;
     background-color: $c-white;
     box-shadow: 0 0.05rem 0.1rem 0 rgba(17, 65, 85, 0.1), 0 0.15rem 0.3rem 0 rgba(17, 65, 85, 0.04),
@@ -1111,6 +1142,9 @@ main {
         padding: 1.6rem 2.4rem;
         color: $c-black;
         transition: 0.3s;
+        background-size: contain 60%;
+        background-position: center;
+        background-repeat: no-repeat;
 
         &:hover {
           color: $c-black;
@@ -1199,14 +1233,11 @@ main {
   opacity: 0.5;
   pointer-events: none;
 
-  &.error {
-  }
+  &.error {}
 
-  &.warning {
-  }
+  &.warning {}
 
-  &.success {
-  }
+  &.success {}
 }
 
 .smart-filter-dropdown-popup ul {
@@ -1227,32 +1258,15 @@ main {
 .js-select-mult {
   width: 100%;
   display: flex;
-  align-items: flex-start;
-  gap: 2rem;
+  flex-direction: column-reverse;
+  gap: 1.2rem;
 
   .form-item {
     flex: none;
   }
 
   .selected-list {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.2rem;
-  }
-
-  .elected-list--item {
-  }
-}
-
-.js-select-mult {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 1.2rem;
-
-  .selected-list {
-    width: 46.9rem;
-    max-width: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -1270,6 +1284,7 @@ main {
       padding: 0.2rem 0.8rem;
       border-radius: 10rem;
       background-color: rgba(50, 151, 194, 0.1);
+      cursor: pointer;
 
       span {
         width: 1.4rem;
@@ -1458,15 +1473,15 @@ main {
 }
 
 .mfp-content {
-  position: relative;
-  padding: 5.6rem 4.8rem 4rem;
-  border-radius: 2.4rem;
-  background: #f5f7fa;
-  box-shadow: 0 0.03rem 0.1rem 0 rgba(17, 65, 85, 0.03), 0 0.08rem 0.2rem 0 rgba(17, 65, 85, 0.04),
-    0 0.15rem 0.35rem 0 rgba(17, 65, 85, 0.05), 0 0.3rem 0.5rem 0 rgba(17, 65, 85, 0.05),
-    0 0 1.6rem 0 rgba(17, 65, 85, 0.06);
-  width: 100%;
-  max-width: 45.6rem;
+  // position: relative;
+  // padding: 5.6rem 4.8rem 4rem;
+  // border-radius: 2.4rem;
+  // background: #f5f7fa;
+  // box-shadow: 0 0.03rem 0.1rem 0 rgba(17, 65, 85, 0.03), 0 0.08rem 0.2rem 0 rgba(17, 65, 85, 0.04),
+  //   0 0.15rem 0.35rem 0 rgba(17, 65, 85, 0.05), 0 0.3rem 0.5rem 0 rgba(17, 65, 85, 0.05),
+  //   0 0 1.6rem 0 rgba(17, 65, 85, 0.06);
+  // width: 100%;
+  // max-width: 45.6rem;
 }
 
 .mfp-close {
@@ -1521,6 +1536,144 @@ main {
           }
         }
       }
+    }
+  }
+}
+
+.val-items-zag,
+.val-items-zag.val-items-zag--location {
+  padding: 0;
+  background: none;
+  position: static;
+  margin-bottom: 0.8rem;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.4rem;
+  color: $c-black;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  row-gap: 1.2rem;
+}
+
+.file-input.request-img.personal-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.6rem;
+  width: fit-content;
+  padding-right: 4rem;
+
+  .webform-field-upload-list {
+    min-height: 15.6rem;
+    min-width: 27.2rem;
+    border-radius: 1.6rem;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 1.6rem;
+
+    &::after {
+      top: 0;
+      left: 0;
+      margin: 0;
+      width: 27.2rem;
+      height: 15.6rem;
+      background-size: cover;
+      border-radius: 1.6rem;
+      overflow: hidden;
+    }
+
+    li {
+      height: 15.6rem;
+      width: 27.2rem;
+      border-radius: 1.6rem;
+      overflow: hidden;
+
+      .webform-field-item-wrap {
+        width: 100%;
+        height: 100%;
+
+        del {
+          top: 0.8rem;
+          right: 0.8rem;
+          left: unset;
+          margin: 0;
+          width: 3.2rem;
+          height: 3.2rem;
+          background-color: $c-accent;
+          color: $c-white;
+          font-size: 2.8rem;
+          line-height: 3.2rem;
+          transition: .3s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          @include hover {
+            background-color: $c-accent_dark;
+            color: $c-white;
+          }
+        }
+
+        .webform-field-upload-icon {
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+
+          img {
+            object-fit: cover;
+            object-position: center bottom;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .webform-field-upload {
+    position: relative;
+    opacity: 1;
+    width: 100%;
+    height: 4rem;
+    max-width: 32.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4rem;
+    background-color: $c-accent;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.4rem;
+    color: $c-white;
+    transition: .3s;
+
+    @include hover {
+      background-color: $c-accent_dark;
+    }
+
+    span {
+      line-height: 4rem;
+      color: $c-white;
+      cursor: pointer;
+    }
+
+    input {
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 2.4rem;
+      cursor: pointer;
     }
   }
 }

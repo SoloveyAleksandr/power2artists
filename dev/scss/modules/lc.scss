@@ -55,6 +55,7 @@
 
         .menu-2lvl {
           position: absolute;
+          z-index: 100;
           top: 100%;
           left: 0;
           box-shadow: 0 0.03rem 0.1rem 0 rgba(17, 65, 85, 0.03),
@@ -89,6 +90,12 @@
           }
         }
       }
+    }
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      gap: 3.2rem;
     }
   }
 }
@@ -154,4 +161,17 @@
   font-weight: 700;
   line-height: 2.4rem;
   color: $c-black;
+}
+
+.lc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.lc-tab-zag {
+  font-size: 2.2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2.8rem;
 }

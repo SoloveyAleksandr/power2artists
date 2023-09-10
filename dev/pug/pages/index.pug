@@ -3,5 +3,10 @@ extends ../layout/main
 block variables
   - const title = 'Разводящая';
 
+block libs-css
+  link(rel="stylesheet", href="./css/main.css")
+
 block content
   
+  div(style="display: flex; flex-direction: column; align-items: center")
+    include ../modules/table

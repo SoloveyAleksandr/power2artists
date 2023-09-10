@@ -1570,8 +1570,10 @@ main {
   padding-right: 4rem;
 
   .webform-field-upload-list {
-    min-height: 15.6rem;
-    min-width: 27.2rem;
+    // min-height: 15.6rem;
+    // min-width: 27.2rem;
+    min-width: 46.9rem;
+    min-height: 28.3rem;
     border-radius: 1.6rem;
     overflow: hidden;
     display: flex;
@@ -1583,16 +1585,16 @@ main {
       top: 0;
       left: 0;
       margin: 0;
-      width: 27.2rem;
-      height: 15.6rem;
+      width: 46.9rem;
+      height: 28.3rem;
       background-size: cover;
       border-radius: 1.6rem;
       overflow: hidden;
     }
 
     li {
-      height: 15.6rem;
-      width: 27.2rem;
+      width: 46.9rem;
+      height: 28.3rem;
       border-radius: 1.6rem;
       overflow: hidden;
 

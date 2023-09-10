@@ -1,0 +1,39 @@
+.lc-table
+  .lc-table__zag My Notifications
+  table 
+    tbody 
+      tr.table-head 
+        th Notification type
+        th Notification message
+        th Date and time
+        th 
+      tr 
+        td 
+          .lc-table__title Notification type
+          .lc-table__content 
+            span New auction added
+              button(type="button", title="Mark as read").lc-table__name-label.btn-notice-new.js-btn-mark-as-read New
+        td 
+          .lc-table__title Notification type
+          .lc-table__content
+            p 
+              span New auction added:
+                a(href="#") 234324
+        td 
+          .lc-table__title Date and time
+          .lc-table__content
+            span 08.09.2023 13:54
+        td 
+          .lc-table__title 
+          .lc-table__content
+            button(type="button", title="delete")
+              svg 
+                use(href="#")
+        td.lc-table__btn-container
+          button(type="button").lc-table__btn
+              span.lc-table__btn-text 
+                span View all
+                span Close
+              svg 
+                use(href="./img/svg/symbol/sprite.svg#arrow-drop")
+          

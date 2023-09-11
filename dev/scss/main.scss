@@ -144,6 +144,16 @@ body {
   background-color: $c-accent;
   border-radius: 10rem;
   @include btnHover;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  svg {
+    width: 1em;
+    height: 1em;
+    fill: transparent;
+    stroke: $c-white;
+  }
 }
 
 .btn-add {
@@ -1146,6 +1156,7 @@ main {
         background-size: contain 60%;
         background-position: center;
         background-repeat: no-repeat;
+        white-space: normal;
 
         &:hover {
           color: $c-black;
@@ -1682,4 +1693,11 @@ main {
       cursor: pointer;
     }
   }
+}
+
+.rubrics-panel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.6rem;
 }

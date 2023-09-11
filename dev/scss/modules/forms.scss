@@ -16,11 +16,28 @@
   }
 
   &.error {
-
     input,
     textarea {
       border-color: rgba(226, 73, 73, 0.85);
       background-color: rgba(226, 73, 73, 0.1);
+    }
+  }
+
+  &.input--mask {
+    position: relative;
+
+    input.date_range-- {
+      padding-right: 4rem;
+    }
+
+    .ui-datepicker-trigger {
+      width: 3rem;
+      height: 3rem;
+      object-fit: contain;
+      object-position: center;
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.5rem;
     }
   }
 
@@ -207,7 +224,7 @@
     display: none;
 
     &:checked {
-      &+label {
+      & + label {
         &::before {
           border-color: $c-accent;
           box-shadow: 0 0rem 0rem rgba(17, 65, 85, 0) inset;

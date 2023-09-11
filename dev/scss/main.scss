@@ -456,6 +456,7 @@ main {
 
   .btn {
     width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -1233,11 +1234,14 @@ main {
   opacity: 0.5;
   pointer-events: none;
 
-  &.error {}
+  &.error {
+  }
 
-  &.warning {}
+  &.warning {
+  }
 
-  &.success {}
+  &.success {
+  }
 }
 
 .smart-filter-dropdown-popup ul {
@@ -1613,7 +1617,7 @@ main {
           color: $c-white;
           font-size: 2.8rem;
           line-height: 3.2rem;
-          transition: .3s;
+          transition: 0.3s;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -1658,7 +1662,7 @@ main {
     font-weight: 700;
     line-height: 2.4rem;
     color: $c-white;
-    transition: .3s;
+    transition: 0.3s;
 
     @include hover {
       background-color: $c-accent_dark;

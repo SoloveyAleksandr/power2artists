@@ -7,12 +7,12 @@
         th Notification message
         th Date and time
         th 
-      tr 
+      tr(is="custom-tr") 
         td 
           .lc-table__title Notification type
           .lc-table__content 
             span New auction added
-              button(type="button", title="Mark as read").lc-table__name-label.btn-notice-new.js-btn-mark-as-read New
+              button(type="button" title="Mark as read").lc-table__name-label.btn-notice-new.js-btn-mark-as-read New
         td 
           .lc-table__title Notification type
           .lc-table__content
@@ -26,14 +26,14 @@
         td 
           .lc-table__title 
           .lc-table__content
-            button(type="button", title="delete")
+            button(type="button" title="delete")
               svg 
                 use(href="#")
         td.lc-table__btn-container
           button(type="button").lc-table__btn
-              span.lc-table__btn-text 
-                span View all
-                span Close
-              svg 
-                use(href="./img/svg/symbol/sprite.svg#arrow-drop")
-          
+            span.lc-table__btn-text 
+              span View all
+              span Close
+            svg 
+              use(href="./img/svg/symbol/sprite.svg#arrow-drop")
+

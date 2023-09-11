@@ -63,7 +63,7 @@
           display: grid;
           grid-template-rows: 0fr;
           overflow: hidden;
-          transition: .3s;
+          transition: 0.3s;
 
           &.active-item {
             grid-template-rows: 1fr;
@@ -82,7 +82,7 @@
             background-color: $c-white;
             border-radius: 1.6rem;
             padding: 0;
-            transition: .3s;
+            transition: 0.3s;
 
             li {
               width: 100%;
@@ -270,7 +270,7 @@
             display: grid;
             grid-template-rows: 0fr;
             overflow: hidden;
-            transition: .3s;
+            transition: 0.3s;
 
             &.active-item {
               grid-template-rows: 1fr;
@@ -289,7 +289,7 @@
               background-color: $c-white;
               border-radius: 1.6rem;
               padding: 0;
-              transition: .3s;
+              transition: 0.3s;
 
               li {
                 width: 100%;
@@ -374,6 +374,16 @@
     background-color: unset;
     border-collapse: collapse;
 
+    tbody {
+      width: 100%;
+
+      @include breakpoint($sm-bp) {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+      }
+    }
+
     tr {
       width: 100%;
       font-size: 1.6rem;
@@ -385,22 +395,26 @@
         line-height: 2rem;
         display: grid;
         grid-template-columns: 1fr;
-        // grid-template-rows: 1fr repeat(100, 0fr);
-        grid-template-rows: auto 0fr 0fr 0fr 0fr 0fr 0fr 0fr;
+        grid-template-rows: auto repeat(100, 0fr);
+        // grid-template-rows: auto 0fr 0fr 0fr 0fr 0fr 0fr 0fr;
         padding: 1.2rem 1.2rem 4.4rem;
         border-radius: 1.6rem;
         background-color: $c-white;
-        box-shadow: 0 0.03rem 0.1rem 0 rgba(17, 65, 85, 0.03), 0 0.08rem 0.2rem 0 rgba(17, 65, 85, 0.04),
-          0 0.15rem 0.35rem 0 rgba(17, 65, 85, 0.05), 0 0.3rem 0.5rem 0 rgba(17, 65, 85, 0.05),
-          0 0 1.6rem 0 rgba(17, 65, 85, 0.06);
+        box-shadow: 0 0.03rem 0.1rem 0 rgba(17, 65, 85, 0.03),
+          0 0.08rem 0.2rem 0 rgba(17, 65, 85, 0.04), 0 0.15rem 0.35rem 0 rgba(17, 65, 85, 0.05),
+          0 0.3rem 0.5rem 0 rgba(17, 65, 85, 0.05), 0 0 1.6rem 0 rgba(17, 65, 85, 0.06);
         position: relative;
-        transition: .5s;
+        transition: 0.5s;
 
         &._open {
-          // grid-template-rows: repeat(100, auto);
-          grid-template-rows: auto auto auto auto auto auto auto auto;
+          grid-template-rows: repeat(100, auto);
+          // grid-template-rows: auto auto auto auto auto auto auto auto;
 
           td {
+            &:first-child {
+              border-bottom: 0.1rem solid $c-grey-border;
+            }
+
             &:not(:first-child):not(.lc-table__btn-container) {
               padding-top: 1.2rem;
               border-bottom: 0.1rem solid $c-grey-border;
@@ -411,21 +425,23 @@
             }
           }
 
-          .lc-table__btn {
-            &-text {
-              span {
-                &:nth-child(1) {
-                  display: none;
-                }
+          .lc-table__btn-container {
+            .lc-table__btn {
+              &-text {
+                span {
+                  &:nth-child(1) {
+                    display: none;
+                  }
 
-                &:nth-child(2) {
-                  display: block;
+                  &:nth-child(2) {
+                    display: block;
+                  }
                 }
               }
-            }
 
-            svg {
-              transform: scale(-1);
+              svg {
+                transform: scale(-1);
+              }
             }
           }
         }
@@ -465,7 +481,8 @@
         display: grid;
         grid-template-columns: 8.8rem 1fr;
         gap: 1.6rem;
-        transition: .5s;
+        transition: 0.5s;
+        border-bottom: 0rem solid transparent;
       }
 
       &.lc-table__btn-container {
@@ -493,7 +510,7 @@
             font-style: normal;
             font-weight: 700;
             line-height: 2.4rem;
-            color: #91CBE5;
+            color: #91cbe5;
 
             span {
               &:nth-child(2) {
@@ -505,7 +522,7 @@
           svg {
             width: 1.6rem;
             height: 1.6rem;
-            fill: #91CBE5;
+            fill: #91cbe5;
           }
         }
       }
@@ -514,7 +531,7 @@
     svg {
       width: 2.4rem;
       height: 2.4rem;
-      fill: #91CBE5;
+      fill: #91cbe5;
     }
 
     .lc-table__name-label {
@@ -533,7 +550,7 @@
 
     a {
       color: $c-accent;
-      transition: .3s;
+      transition: 0.3s;
 
       @include hover {
         color: $c-accent_dark;

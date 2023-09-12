@@ -93,10 +93,12 @@
     line-height: 2.4rem;
 
     .zag {
+      display: inline;
       color: $c-placeholder;
     }
 
     .val {
+      display: inline;
       color: $c-black;
     }
   }
@@ -113,6 +115,7 @@
 
   .btn {
     flex: 1;
+    max-width: 100%;
   }
 
   .artist-btn {

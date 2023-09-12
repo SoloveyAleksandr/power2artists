@@ -582,9 +582,16 @@ main {
     }
 
     td {
+      //
+      max-width: 25rem;
+      overflow: hidden;
+      //
       padding: 1rem 3.2rem;
 
       @include breakpoint($sm-bp) {
+        //
+        max-width: 100%;
+        //
         min-height: 0;
         padding: 0;
         overflow: hidden;

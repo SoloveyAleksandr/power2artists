@@ -310,6 +310,10 @@ main {
             pointer-events: all;
           }
 
+          .main-item--subtitle {
+            opacity: 0;
+          }
+
           .main-item-container {
             @include breakpoint($xl-bp) {
               grid-template-rows: auto 1fr;
@@ -424,6 +428,17 @@ main {
     grid-area: 1/1/2/2;
     padding-right: 3rem;
   }
+}
+
+.main-item--subtitle {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.4rem;
+  color: #7f8e95;
+  margin: 0.4rem 0 7rem;
+  opacity: 1;
+  transition: 0.3s;
 }
 
 .main-form {
@@ -1563,31 +1578,17 @@ main {
   }
 }
 
-.mfp-content {
-  // position: relative;
-  // padding: 5.6rem 4.8rem 4rem;
-  // border-radius: 2.4rem;
-  // background: #f5f7fa;
-  // box-shadow: 0 0.03rem 0.1rem 0 rgba(17, 65, 85, 0.03), 0 0.08rem 0.2rem 0 rgba(17, 65, 85, 0.04),
-  //   0 0.15rem 0.35rem 0 rgba(17, 65, 85, 0.05), 0 0.3rem 0.5rem 0 rgba(17, 65, 85, 0.05),
-  //   0 0 1.6rem 0 rgba(17, 65, 85, 0.06);
-  // width: 100%;
-  // max-width: 45.6rem;
-}
-
-.mfp-close {
-  position: absolute;
-  top: 1.6rem;
-  right: 1.6rem;
-  width: 3.2rem;
-  height: 3.2rem;
-  font-size: 3.2rem;
-  line-height: normal;
-  color: rgba(155, 174, 182, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+// .mfp-content {
+// position: relative;
+// padding: 5.6rem 4.8rem 4rem;
+// border-radius: 2.4rem;
+// background: #f5f7fa;
+// box-shadow: 0 0.03rem 0.1rem 0 rgba(17, 65, 85, 0.03), 0 0.08rem 0.2rem 0 rgba(17, 65, 85, 0.04),
+//   0 0.15rem 0.35rem 0 rgba(17, 65, 85, 0.05), 0 0.3rem 0.5rem 0 rgba(17, 65, 85, 0.05),
+//   0 0 1.6rem 0 rgba(17, 65, 85, 0.06);
+// width: 100%;
+// max-width: 45.6rem;
+// }
 
 .popup-window {
   padding: 1.6rem 0rem;

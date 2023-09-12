@@ -329,6 +329,10 @@
   max-width: 45.6rem;
   margin: 0 auto;
 
+  @include breakpoint($sm-bp) {
+    padding: 5rem 1.6rem 2.4rem;
+  }
+
   &.cropper {
     max-width: 75vw;
 
@@ -365,7 +369,9 @@
     text-align: center;
   }
 
-  .js-form-popup {
+  .js-form-popup,
+  .js-form-popup--,
+  form {
     display: flex;
     flex-direction: column;
 
@@ -379,13 +385,15 @@
 
     .btn {
       width: 100%;
+      max-width: 100%;
 
       &:not(:last-child) {
         margin-bottom: 6.4rem;
       }
     }
 
-    .js-ajax-popup {
+    .js-ajax-popup,
+    .js-ajax-popup-- {
       margin: 0 auto;
       font-size: 1.6rem;
       font-style: normal;
@@ -404,5 +412,20 @@
         }
       }
     }
+  }
+
+  .mfp-close,
+  .mfp-close-fake {
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    font-size: 3.2rem;
+    line-height: normal;
+    color: rgba(155, 174, 182, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

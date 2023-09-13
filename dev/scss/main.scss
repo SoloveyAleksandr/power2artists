@@ -185,11 +185,18 @@ body {
   text-overflow: ellipsis;
 }
 
-.row {
+.row,
+.js-row {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+}
+
+.js-applications {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
 }
 
 //
@@ -1386,6 +1393,7 @@ main {
       border-radius: 10rem;
       background-color: rgba(50, 151, 194, 0.1);
       cursor: pointer;
+      flex-wrap: wrap;
 
       span {
         width: 1.4rem;
@@ -1397,28 +1405,30 @@ main {
         justify-content: center;
         font-size: 1.2rem;
         color: $c-white;
+        padding: 0;
 
         &::after {
           content: '×';
         }
+      }
 
-        // &::before,
-        // &::after {
-        //   content: '';
-        //   width: 0.8rem;
-        //   height: 0.2rem;
-        //   border-radius: 0.2rem;
-        //   background-color: $c-white;
-        //   position: absolute;
-        // }
+      .count {
+        position: static;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-left: 0.8rem;
 
-        // &::before {
-        //   transform: rotate(-45deg);
-        // }
+        span.count__plus,
+        span.count__minus {
+          width: 1.8rem !important;
+          height: 1.8rem !important;
+          margin: 0;
+        }
 
-        // &::after {
-        //   transform: rotate(45deg);
-        // }
+        .count__num {
+          margin: 0;
+        }
       }
     }
   }

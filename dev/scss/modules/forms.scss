@@ -188,6 +188,41 @@
       }
     }
   }
+
+  &.required--date {
+    position: relative;
+    max-width: 46.9rem;
+
+    .date-picker {
+      padding-right: 3.2rem;
+    }
+
+    .ui-datepicker-trigger {
+      width: 3rem;
+      height: 3rem;
+      position: absolute;
+      bottom: 0.5rem;
+      right: 1rem;
+    }
+  }
+
+  &.input--mask--required {
+    position: relative;
+    max-width: 46.9rem;
+
+    input {
+      padding-right: 3.2rem;
+    }
+
+    .icon {
+      width: 3rem;
+      height: 3rem;
+      position: absolute;
+      bottom: 0.5rem;
+      right: 1rem;
+      fill: $c-accent;
+    }
+  }
 }
 
 .form-group {
@@ -201,6 +236,14 @@
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+  }
+
+  &__item-zag {
+    font-size: 2.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.8rem;
+    margin-bottom: 1.6rem;
   }
 }
 
@@ -427,5 +470,129 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+.form-photo {
+  position: relative;
+
+  .personal-photo,
+  .form-photo--img {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    .webform-field-upload {
+      position: relative;
+      width: fit-content;
+      height: fit-content;
+      opacity: 1;
+      order: 3;
+
+      .webform-button-upload {
+        position: static;
+        max-width: 32.8rem;
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 2.4rem;
+        color: $c-white;
+        text-align: center;
+        padding: 0.8rem 2rem;
+        background-color: $c-accent;
+        border-radius: 10rem;
+        @include btnHover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+    }
+
+    .input-file-info {
+      max-width: 46.9rem;
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 2.4rem;
+      color: $c-placeholder;
+      order: 2;
+    }
+
+    .webform-field-upload-list {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      margin: 0;
+      width: fit-content;
+      height: fit-content;
+      min-width: 46.9rem;
+      min-height: 28.3rem;
+      order: 1;
+
+      @include breakpoint($sm-bp) {
+        min-width: 100%;
+        min-height: calc((100vw - 3.2rem) * 0.603);
+      }
+
+      &::after {
+        width: 46.9rem;
+        height: 28.3rem;
+        border-radius: 1.6rem;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        background-size: cover;
+
+        @include breakpoint($sm-bp) {
+          width: 100%;
+          height: calc((100vw - 3.2rem) * 0.603);
+        }
+      }
+
+      li {
+        position: relative;
+        width: 46.9rem;
+        height: 28.3rem;
+        border-radius: 1.6rem;
+        overflow: hidden;
+        background-color: rgb(143, 151, 155);
+
+        @include breakpoint($sm-bp) {
+          width: 100%;
+          height: calc((100vw - 3.2rem) * 0.603);
+        }
+
+        .webform-field-item-wrap {
+          width: 100%;
+          height: 100%;
+        }
+
+        .webform-field-upload-icon {
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+          background-repeat: no-repeat;
+
+          img {
+            position: static;
+            transform: none;
+            object-fit: contain;
+            object-position: center;
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        del {
+          width: 2.4rem;
+          height: 2.4rem;
+          top: 1.2rem;
+          right: 1.2rem;
+          font-size: 2.4rem;
+        }
+      }
+    }
   }
 }

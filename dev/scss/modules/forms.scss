@@ -223,6 +223,13 @@
       fill: $c-accent;
     }
   }
+
+  &:not(.required--date),
+  &:not(.input--mask--required) {
+    img.ui-datepicker-trigger {
+      display: none;
+    }
+  }
 }
 
 .form-group {
@@ -357,6 +364,16 @@
     display: flex;
     align-items: center;
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &.textarea {
+    .value {
+      height: fit-content;
+      min-height: 4rem;
+      padding: 1rem 1.6rem;
+    }
   }
 }
 
@@ -387,6 +404,12 @@
 
     .img-container {
       width: 100%;
+      max-width: 80vw;
+      max-height: 60rem;
+
+      @include breakpoint($xl-bp) {
+        max-width: 100%;
+      }
 
       img {
         object-fit: contain;
@@ -399,6 +422,13 @@
   &--content {
     display: flex;
     flex-direction: column;
+    gap: 4rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 4rem;
   }
 

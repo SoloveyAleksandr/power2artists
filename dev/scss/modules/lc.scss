@@ -349,6 +349,12 @@
         gap: 3.2rem;
       }
 
+      form:not(.filter) {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+      }
+
       .filter {
         display: flex;
         align-items: center;

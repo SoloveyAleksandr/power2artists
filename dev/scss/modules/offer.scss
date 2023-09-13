@@ -92,6 +92,7 @@
   gap: 6.2rem;
   width: 100%;
   max-width: 121.7rem;
+  margin-bottom: 2.4rem;
 
   @include breakpoint($xl-bp) {
     max-width: 100%;

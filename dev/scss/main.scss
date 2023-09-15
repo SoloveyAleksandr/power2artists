@@ -757,7 +757,6 @@ main {
       font-style: normal;
       font-weight: 700;
       line-height: 2.4rem;
-      color: $c-black;
     }
   }
 }
@@ -1533,6 +1532,14 @@ main {
     width: fit-content;
     cursor: pointer;
     user-select: none;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
   }
 
   .jq-checkbox {

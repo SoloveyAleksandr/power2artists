@@ -205,14 +205,28 @@
 
   &__item-doc {
     .list-doc {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+
+      @include breakpoint($sm-bp) {
+        grid-template-columns: 1fr;
+      }
+
       .documents {
         display: flex;
-        align-items: center;
-        gap: 0.4rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+        padding: 0.8rem 1.2rem;
+        background-color: rgba(50, 151, 194, 0.1);
+        border-radius: 1.2rem;
+        overflow: hidden;
 
         .img {
-          width: 3.2rem;
-          height: 3.2rem;
+          width: 2.4rem;
+          height: 2.4rem;
 
           img {
             object-fit: contain;
@@ -223,11 +237,25 @@
         }
 
         .name {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
           font-size: 1.6rem;
           font-style: normal;
           font-weight: 400;
           line-height: 2.4rem;
           color: $c-black;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+
+          & > * {
+            color: inherit;
+            max-width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
         }
       }
     }
@@ -279,6 +307,21 @@
     font-style: normal;
     line-height: 2.8rem;
     font-weight: 700;
+
+    svg.icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      fill: $c-accent;
+    }
+  }
+
+  &__item-winner {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 2rem;
+    font-style: normal;
+    line-height: 2.8rem;
 
     svg.icon {
       width: 2.4rem;

@@ -101,6 +101,10 @@
             height: 2.4rem;
             fill: transparent;
             stroke: $c-white;
+
+            @include breakpoint($xl-bp) {
+              display: none;
+            }
           }
         }
       }

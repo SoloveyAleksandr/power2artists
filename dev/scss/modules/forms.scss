@@ -267,9 +267,56 @@
 }
 
 .form-group-items {
-  display: flex;
-  flex-direction: column;
-  gap: 3.2rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 2.4rem;
+  column-gap: 3rem;
+
+  @include breakpoint($xl-bp) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint($sm-bp) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &._column {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+
+  &:not(._column).form-item {
+    .jq-selectbox {
+      width: 100%;
+
+      &__select {
+        width: 100%;
+      }
+    }
+
+    &.file-input {
+      grid-column: span 2;
+
+      @include breakpoint($sm-bp) {
+        grid-column: span 1;
+      }
+    }
+  }
+
+  .input-file-list {
+    grid-column: span 3;
+
+    @include breakpoint($xl-bp) {
+      grid-column: span 2;
+    }
+
+    @include breakpoint($sm-bp) {
+      grid-column: span 1;
+    }
+  }
 }
 
 .form-item-remember {

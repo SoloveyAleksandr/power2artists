@@ -149,11 +149,22 @@ body {
   justify-content: center;
   gap: 1rem;
 
+  @include breakpoint($sm-bp) {
+    width: 100%;
+    max-width: 100%;
+  }
+
   svg {
     width: 1em;
     height: 1em;
     fill: transparent;
     stroke: $c-white;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    background-color: $c-accent_dark;
   }
 }
 
@@ -191,6 +202,22 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  grid-column: span 3;
+
+  @include breakpoint($xl-bp) {
+    grid-column: span 2;
+  }
+
+  @include breakpoint($sm-bp) {
+    grid-column: span 1;
+  }
+
+  .lc {
+    i.fa {
+      position: relative;
+      z-index: 1;
+    }
+  }
 }
 
 .js-applications {
@@ -1888,9 +1915,28 @@ form {
   }
 
   &-list {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     gap: 0.8rem;
+
+    a {
+      border-radius: 10rem;
+      background: rgba(50, 151, 194, 0.1);
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 2.4rem;
+      color: #081f28;
+      padding: 0rem 0.8rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
   }
 }
 
@@ -1903,15 +1949,45 @@ form {
 }
 
 .executor__cell {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+
+  @include breakpoint($sm-bp) {
+    max-width: 100%;
+  }
 }
 
 .b_info {
-  font-size: 2.2rem;
+  width: 100%;
+  border-radius: 1.6rem;
+  background: rgba(50, 151, 194, 0.1);
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 4rem;
+  gap: 0.8rem;
+  font-size: 1.6rem;
   font-style: normal;
-  font-weight: 700;
-  line-height: 2.8rem;
-  margin-bottom: 2.4rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  color: #7f8e95;
+
+  p {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  b {
+    font-weight: inherit;
+    color: $c-black;
+  }
+
+  a {
+    color: $c-accent;
+  }
 }
